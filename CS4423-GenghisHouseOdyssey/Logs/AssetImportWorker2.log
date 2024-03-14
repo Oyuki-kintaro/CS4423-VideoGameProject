@@ -15,7 +15,7 @@ C:/Users/Lydia/Documents/GitHub/CS4423-VideoGameProject/CS4423-GenghisHouseOdyss
 -logFile
 Logs/AssetImportWorker2.log
 -srvPort
-52978
+51529
 Successfully changed project path to: C:/Users/Lydia/Documents/GitHub/CS4423-VideoGameProject/CS4423-GenghisHouseOdyssey
 C:/Users/Lydia/Documents/GitHub/CS4423-VideoGameProject/CS4423-GenghisHouseOdyssey
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Lydia/Documents/GitHub/CS4423-VideoGameProject/CS4423-GenghisHouseOdyss
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [2504] Host "[IP] 10.10.110.107 [Port] 0 [Flags] 2 [Guid] 3389827003 [EditorId] 3389827003 [Version] 1048832 [Id] WindowsEditor(7,foxyCleopatra) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [21216] Host "[IP] 192.168.1.253 [Port] 0 [Flags] 2 [Guid] 1493763814 [EditorId] 1493763814 [Version] 1048832 [Id] WindowsEditor(7,foxyCleopatra) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [2504] Host "[IP] 10.10.110.107 [Port] 0 [Flags] 2 [Guid] 3389827003 [EditorId] 3389827003 [Version] 1048832 [Id] WindowsEditor(7,foxyCleopatra) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [21216] Host "[IP] 192.168.1.253 [Port] 0 [Flags] 2 [Guid] 1493763814 [EditorId] 1493763814 [Version] 1048832 [Id] WindowsEditor(7,foxyCleopatra) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
-Refreshing native plugins compatible for Editor in 14.52 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 12.65 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.17f1 (4fc78088f837)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/Resources/UnitySubsystems
@@ -70,46 +70,46 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56772
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56008
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005579 seconds.
-- Loaded All Assemblies, in  0.300 seconds
+Registered in 0.005934 seconds.
+- Loaded All Assemblies, in  0.328 seconds
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.239 seconds
-Domain Reload Profiling: 538ms
-	BeginReloadAssembly (92ms)
+- Finished resetting the current domain, in  0.250 seconds
+Domain Reload Profiling: 577ms
+	BeginReloadAssembly (95ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (30ms)
+	RebuildCommonClasses (33ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (48ms)
-	LoadAllAssembliesAndSetupDomain (120ms)
-		LoadAssemblies (89ms)
+	initialDomainReloadingComplete (53ms)
+	LoadAllAssembliesAndSetupDomain (137ms)
+		LoadAssemblies (94ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (118ms)
-			TypeCache.Refresh (117ms)
-				TypeCache.ScanAssembly (103ms)
+		AnalyzeDomain (135ms)
+			TypeCache.Refresh (134ms)
+				TypeCache.ScanAssembly (123ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (240ms)
+	FinalizeReload (251ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (189ms)
+		SetupLoadedEditorAssemblies (196ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (8ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (134ms)
-			ProcessInitializeOnLoadMethodAttributes (41ms)
+			ProcessInitializeOnLoadAttributes (137ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -117,8 +117,8 @@ Domain Reload Profiling: 538ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.626 seconds
-Refreshing native plugins compatible for Editor in 4.16 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.589 seconds
+Refreshing native plugins compatible for Editor in 3.84 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Package Manager log level set to [2]
@@ -126,47 +126,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.526 seconds
-Domain Reload Profiling: 1146ms
-	BeginReloadAssembly (123ms)
+- Finished resetting the current domain, in  0.618 seconds
+Domain Reload Profiling: 1205ms
+	BeginReloadAssembly (126ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (19ms)
-	RebuildCommonClasses (27ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (29ms)
 	RebuildNativeTypeToScriptingClass (9ms)
 	initialDomainReloadingComplete (37ms)
-	LoadAllAssembliesAndSetupDomain (423ms)
-		LoadAssemblies (342ms)
+	LoadAllAssembliesAndSetupDomain (385ms)
+		LoadAssemblies (293ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (151ms)
-			TypeCache.Refresh (129ms)
-				TypeCache.ScanAssembly (114ms)
-			ScanForSourceGeneratedMonoScriptInfo (17ms)
-			ResolveRequiredComponents (3ms)
-	FinalizeReload (526ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (137ms)
+				TypeCache.ScanAssembly (122ms)
+			ScanForSourceGeneratedMonoScriptInfo (21ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (619ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (395ms)
+		SetupLoadedEditorAssemblies (457ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (60ms)
-			ProcessInitializeOnLoadAttributes (289ms)
-			ProcessInitializeOnLoadMethodAttributes (31ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			BeforeProcessingInitializeOnLoad (66ms)
+			ProcessInitializeOnLoadAttributes (333ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (5ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 5.30 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 5.83 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4040 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 70 unused Assets / (244.9 KB). Loaded Objects now: 4496.
-Memory consumption went from 149.3 MB to 149.0 MB.
-Total: 3.596300 ms (FindLiveObjects: 0.367400 ms CreateObjectMapping: 0.107800 ms MarkObjects: 2.876200 ms  DeleteObjects: 0.243900 ms)
+Unloading 4044 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 70 unused Assets / (244.7 KB). Loaded Objects now: 4501.
+Memory consumption went from 149.4 MB to 149.2 MB.
+Total: 3.892400 ms (FindLiveObjects: 0.306300 ms CreateObjectMapping: 0.235000 ms MarkObjects: 3.107700 ms  DeleteObjects: 0.242200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -184,35 +184,166 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 695012.805342 seconds.
-  path: Assets/Scenes/MainMenu.unity
-  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/MainMenu.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '36343c4ea057e4199186f8f22b3b6610') in 0.067734 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 18.917229 seconds.
-  path: Assets/Scenes/MainMenu.unity
-  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainMenu.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f11fee1a4f0b9ceee3088a89ad4c130') in 0.000531 seconds
+  Time since last request: 18786.728736 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b9326e97e2461385864aa44f9e28ada') in 0.012455 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.677512 seconds.
-  path: Assets/Scenes/House.unity
-  artifactKey: Guid(ef7302cdc29385b47841f8a325b62b7e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scenes/House.unity using Guid(ef7302cdc29385b47841f8a325b62b7e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '06543413d08dcb5474e490e82841c4d5') in 0.012560 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 1814.558221 seconds.
-  path: Assets/Scenes/House.unity
-  artifactKey: Guid(ef7302cdc29385b47841f8a325b62b7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/House.unity using Guid(ef7302cdc29385b47841f8a325b62b7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03c3993080d9ad1553e93bc13d4237fe') in 0.000776 seconds
+  Time since last request: 328.299298 seconds.
+  path: Assets/Tiles
+  artifactKey: Guid(7e2178c53d4cf534fab9aea9cb7c413a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles using Guid(7e2178c53d4cf534fab9aea9cb7c413a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64ccc77451f261a9aaa8293a2eeaa45d') in 0.000986 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 110.017557 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_0.asset
+  artifactKey: Guid(da04d971437c7cc46b2527192fb20160) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_0.asset using Guid(da04d971437c7cc46b2527192fb20160) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cee0429ad4a55733fb98948df35cdfae') in 0.092316 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_21.asset
+  artifactKey: Guid(3528b2af10b32a845838f217aca52dbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_21.asset using Guid(3528b2af10b32a845838f217aca52dbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccfa7f35957c7fa20adf26e02085181e') in 0.027865 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_13.asset
+  artifactKey: Guid(40974df98e4330d44a06fdfff9e08516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_13.asset using Guid(40974df98e4330d44a06fdfff9e08516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '278ce421109e3d240447df949c85e07c') in 0.016857 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_8.asset
+  artifactKey: Guid(822569ab209a5a54ca0f215d669a3621) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_8.asset using Guid(822569ab209a5a54ca0f215d669a3621) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9a6cd037ca740596530a09f2fc4e05c') in 0.017784 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_2.asset
+  artifactKey: Guid(0afb2179ccfa38c4a8d06fc66a982044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_2.asset using Guid(0afb2179ccfa38c4a8d06fc66a982044) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '579031fadf56417be54c7ea9966de5fa') in 0.032452 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_6.asset
+  artifactKey: Guid(03b9ccf3b22577e49b9119b69eab89de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_6.asset using Guid(03b9ccf3b22577e49b9119b69eab89de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f2ce92002a378c0174018469d8f5d7e') in 0.017052 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_12.asset
+  artifactKey: Guid(8b2108bd963155b4a8486115240afdf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_12.asset using Guid(8b2108bd963155b4a8486115240afdf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f633311e434da61bbf7da705091aa7f') in 0.017431 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_14.asset
+  artifactKey: Guid(bdc07dc970500b54ca662e3af322e85c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_14.asset using Guid(bdc07dc970500b54ca662e3af322e85c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a70355e5c467503fc7cf83ca9efab59d') in 0.011477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_16.asset
+  artifactKey: Guid(9e5152ba305e4fb43896e4c56b1d8393) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_16.asset using Guid(9e5152ba305e4fb43896e4c56b1d8393) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c22cc8597f4a64452c9240f02004bf87') in 0.010931 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 7.192414 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_23.asset
+  artifactKey: Guid(7a25357dab513da4581b6d1e11b964b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_23.asset using Guid(7a25357dab513da4581b6d1e11b964b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd45450ac37308580f4ae66b0fecdf75e') in 0.028960 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.021976 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_25.asset
+  artifactKey: Guid(d971507c41b95cb41bb93974bb692691) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_25.asset using Guid(d971507c41b95cb41bb93974bb692691) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7af347486f59863c13e3ff6f2a91347') in 0.039393 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_32.asset
+  artifactKey: Guid(0036e701376b518458a6a0d64e2ef27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_32.asset using Guid(0036e701376b518458a6a0d64e2ef27f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bccd48302a212ba440e372a5057ee07') in 0.056998 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_50.asset
+  artifactKey: Guid(c43045aa780d10c4e8f88c2774306fa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_50.asset using Guid(c43045aa780d10c4e8f88c2774306fa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02053e92d2b94f6d5b350f37f5a51028') in 0.042884 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_36.asset
+  artifactKey: Guid(46dd5306954be65419ede8388e19cf29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_36.asset using Guid(46dd5306954be65419ede8388e19cf29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ef7ec333de212cefba994f768a67092') in 0.011646 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_48.asset
+  artifactKey: Guid(c760c236d96f6b24f8e8d750f2ba30ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_48.asset using Guid(c760c236d96f6b24f8e8d750f2ba30ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed4360f42fa8f02d1e98a8e38f53b1c6') in 0.011680 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_29.asset
+  artifactKey: Guid(6bc0939d2022137458bcac85a891dc58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_29.asset using Guid(6bc0939d2022137458bcac85a891dc58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77d055dd3713e9b1ee2e647dd2b5628c') in 0.013730 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_45.asset
+  artifactKey: Guid(15191fe2c61c1384c9a6274a74c1ae7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_45.asset using Guid(15191fe2c61c1384c9a6274a74c1ae7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '995fcbd27a4945f640af613fbd26d394') in 0.011802 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Sprites/House/floor and walls spritesheet_33.asset
+  artifactKey: Guid(dabdc10efc9137f41904cb86011c765b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/House/floor and walls spritesheet_33.asset using Guid(dabdc10efc9137f41904cb86011c765b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fbb414667a814d3e71fce9e9a176f37') in 0.012340 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
