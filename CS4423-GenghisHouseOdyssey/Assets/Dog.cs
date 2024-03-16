@@ -1,32 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Dog : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] int health = 3;
     [SerializeField] float speed = 0f;
-    [SerializeField] float jumpForce = 10;
-    [SerializeField] int stamina = 3;
 
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
-
-    [Header("Physics")]
-    [SerializeField] LayerMask groundMask;
-    [SerializeField] float jumpOffset = -.5f;
-    [SerializeField] float jumpRadius = .25f;
 
     [Header("Flavor")]
     [SerializeField] string creatureName = "Meepis";
     [SerializeField] private GameObject body;
     //[SerializeField] private List<AnimationStateChanger> animationStateChangers;
 
-    [Header("Tracked Data")]
-    [SerializeField] Vector3 homePosition = Vector3.zero;
+    [Header("Health Status")]
+    [SerializeField]  Image StaminaBar;
+    [SerializeField]  float stamina = 100;
+    [SerializeField]  float maxStamina = 100;
+    [SerializeField]  float runCost = 0.1f;
 
+    [SerializeField]  Image HungerBar;
+    [SerializeField]  float hunger = 100; 
+    [SerializeField]  float maxHunger = 100;
+    [SerializeField]  float hungerCost = 1;
+
+    [SerializeField]  Image BathroomBar;
+    [SerializeField]  float bathroom = 100;
+    [SerializeField]  float maxBathroom = 100;
+    [SerializeField]  float bathroomCost = 1f;
     Rigidbody2D rb;
 
     void Awake(){
@@ -36,17 +41,14 @@ public class Dog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Debug.Log(health);
-
+        // Load the player's stats from PlayerPrefs
+        LoadPlayerStats();
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void FixedUpdate(){
@@ -65,6 +67,10 @@ public class Dog : MonoBehaviour
             MoveCreatureRb(direction);
         }
 
+        stamina -= runCost * Time.deltaTime;
+        if(stamina < 0 ) stamina = 0;
+        StaminaBar.fillAmount = stamina / maxStamina;
+
         //set animation
         /*if(direction.x != 0){
             foreach(AnimationStateChanger asc in animationStateChangers){
@@ -75,8 +81,6 @@ public class Dog : MonoBehaviour
                 asc.ChangeAnimationState("Idle");
             }
         }*/
-
-
 
     }
 
@@ -101,6 +105,32 @@ public class Dog : MonoBehaviour
     public void Bark()
     {
         GetComponent<AudioSource>().Play();
+
+        hunger -= hungerCost * Time.deltaTime;
+        if(hunger < 0 ) hunger = 0;
+        HungerBar.fillAmount = hunger / maxHunger;
+    }
+
+    void OnDestroy()
+    {
+        // Save player's stats to PlayerPrefs when the game object is destroyed
+        SavePlayerStats();
+    }
+
+    void SavePlayerStats()
+    {
+        // Save the player's stats to PlayerPrefs
+        PlayerPrefs.SetFloat("Stamina", stamina);
+        PlayerPrefs.SetFloat("Hunger", hunger);
+        PlayerPrefs.SetFloat("Bathroom", bathroom);
+    }
+
+    void LoadPlayerStats()
+    {
+        // Load the player's stats from PlayerPrefs
+        stamina = PlayerPrefs.GetFloat("Stamina", maxStamina);
+        hunger = PlayerPrefs.GetFloat("Hunger", maxHunger);
+        bathroom = PlayerPrefs.GetFloat("Bathroom", maxBathroom);
     }
 
 }

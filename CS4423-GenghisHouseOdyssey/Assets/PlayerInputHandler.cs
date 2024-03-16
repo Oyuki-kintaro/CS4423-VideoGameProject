@@ -42,7 +42,10 @@ public class PlayerInputHandler : MonoBehaviour
             PlayerDog.Bark();
         }
 
-        PlayerDog.MoveDog(input);
+        if (input != Vector3.zero) 
+        {
+            PlayerDog.MoveDog(input);
+        }
 
     }
 }
