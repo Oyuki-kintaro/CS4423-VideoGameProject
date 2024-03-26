@@ -44,7 +44,7 @@ public class EnterNextScene : MonoBehaviour
                 }
                 if(currentScene.name == "FrontYard")
                 {
-                    player.transform.position = new Vector3(doorX, doorY + 1.3f, 0f); // Adjust Y position as needed
+                    player.transform.position = new Vector3(doorX, doorY - 1.3f, 0f); // Adjust Y position as needed
                 }
             }
 

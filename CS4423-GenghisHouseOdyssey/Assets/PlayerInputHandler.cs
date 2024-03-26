@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputHandler : MonoBehaviour
 {
@@ -40,6 +41,16 @@ public class PlayerInputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerDog.Bark();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlayerDog.Poop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
         }
 
         if (input != Vector3.zero) 

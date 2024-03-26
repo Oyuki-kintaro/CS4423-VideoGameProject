@@ -8,13 +8,16 @@ public class Dog : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] float speed = 0f;
+    [SerializeField] float barkCost = 4f;
+    [SerializeField] float poopOffsetX = -0.5f;
+    [SerializeField] float poopOffsetY = -0.5f;
+    [SerializeField] private GameObject body;
+    [SerializeField] private GameObject dogPoopPrefab;
 
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
 
-    [Header("Flavor")]
-    [SerializeField] string creatureName = "Meepis";
-    [SerializeField] private GameObject body;
+    
     //[SerializeField] private List<AnimationStateChanger> animationStateChangers;
 
     [Header("Health Status")]
@@ -22,6 +25,7 @@ public class Dog : MonoBehaviour
     [SerializeField]  float stamina = 100;
     [SerializeField]  float maxStamina = 100;
     [SerializeField]  float runCost = 0.1f;
+    [SerializeField] float recoveryRate = 5f;
 
     [SerializeField]  Image HungerBar;
     [SerializeField]  float hunger = 100; 
@@ -31,7 +35,7 @@ public class Dog : MonoBehaviour
     [SerializeField]  Image BathroomBar;
     [SerializeField]  float bathroom = 100;
     [SerializeField]  float maxBathroom = 100;
-    [SerializeField]  float bathroomCost = 1f;
+    [SerializeField]  float bathroomCost = 0.01f;
     Rigidbody2D rb;
 
     void Awake(){
@@ -48,11 +52,9 @@ public class Dog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void FixedUpdate(){
-
+        bathroom -= bathroomCost * Time.deltaTime;
+        if(bathroom < 0 ) bathroom = 0;
+        BathroomBar.fillAmount = bathroom / maxBathroom;
     }
 
     public void MoveDog(Vector3 direction)
@@ -106,9 +108,50 @@ public class Dog : MonoBehaviour
     {
         GetComponent<AudioSource>().Play();
 
-        hunger -= hungerCost * Time.deltaTime;
+        hunger -= (hungerCost * barkCost) * Time.deltaTime;
         if(hunger < 0 ) hunger = 0;
         HungerBar.fillAmount = hunger / maxHunger;
+
+        stamina -= (runCost * barkCost) * Time.deltaTime;
+        if(stamina < 0 ) stamina = 0;
+        StaminaBar.fillAmount = stamina / maxStamina;
+    }
+
+    public void Rest()
+    {
+        stamina += (recoveryRate * Time.deltaTime);
+        stamina = Mathf.Clamp(stamina, 0f, maxStamina);
+        StaminaBar.fillAmount = stamina / maxStamina;
+    }
+
+    public void Eat()
+    {
+        // fill hunger status bar
+        hunger += (recoveryRate * Time.deltaTime);
+        hunger = Mathf.Clamp(hunger, 0f, maxHunger);
+        HungerBar.fillAmount = hunger / maxHunger;
+
+        // deplete bathroom status bar
+        if (hunger < maxHunger)
+        {
+            bathroom -= (bathroomCost * hungerCost) * Time.deltaTime;
+            if(bathroom < 0 ) bathroom = 0;
+            BathroomBar.fillAmount = bathroom / maxBathroom;
+        }
+        
+    }
+
+    public void Poop() 
+    {
+        if (bathroom < (maxBathroom - 5))
+        {
+            Vector3 spawnPosition = transform.position + new Vector3(poopOffsetX, poopOffsetY, 0f);
+            Instantiate(dogPoopPrefab, spawnPosition, Quaternion.identity);
+
+            bathroom = maxBathroom;
+            BathroomBar.fillAmount = bathroom / maxBathroom;
+        }
+        
     }
 
     void OnDestroy()
@@ -131,6 +174,10 @@ public class Dog : MonoBehaviour
         stamina = PlayerPrefs.GetFloat("Stamina", maxStamina);
         hunger = PlayerPrefs.GetFloat("Hunger", maxHunger);
         bathroom = PlayerPrefs.GetFloat("Bathroom", maxBathroom);
+
+        StaminaBar.fillAmount = stamina / maxStamina;
+        HungerBar.fillAmount = hunger / maxHunger;
+        BathroomBar.fillAmount = bathroom / maxBathroom;
     }
 
 }

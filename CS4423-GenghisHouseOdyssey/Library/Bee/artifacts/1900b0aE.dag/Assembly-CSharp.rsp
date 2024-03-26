@@ -377,8 +377,10 @@
 "Assets/CameraFollow.cs"
 "Assets/Dog.cs"
 "Assets/EnterNextScene.cs"
+"Assets/FulfillNeeds.cs"
 "Assets/MainMenuHandler.cs"
 "Assets/PlayerInputHandler.cs"
+"Assets/StatusBarController.cs"
 -langversion:9.0
 
 /deterministic
