@@ -38,25 +38,21 @@ public class PlayerInputHandler : MonoBehaviour
             input.x += 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             PlayerDog.Bark();
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             PlayerDog.Poop();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
 
-        if (input != Vector3.zero) 
-        {
-            PlayerDog.MoveDog(input);
-        }
-
+        PlayerDog.MoveDog(input);
     }
 }

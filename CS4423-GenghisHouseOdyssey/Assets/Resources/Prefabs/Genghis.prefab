@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1494589263702816981}
   - component: {fileID: 4933852518654259581}
   - component: {fileID: 7350488195884985044}
+  - component: {fileID: 6373389759754445438}
+  - component: {fileID: 1824999307505039517}
   m_Layer: 0
   m_Name: Genghis
   m_TagString: Player
@@ -100,14 +102,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c19aaaa03ad33b4aa0ab7a0456b58a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barkCost: 4
+  poopOffsetX: -0.7
+  poopOffsetY: -0.25
+  body: {fileID: 658444997582540310}
+  dogPoopPrefab: {fileID: 4938304690104010048, guid: 03b0c020303015e4fa7df1da5656509f, type: 3}
   speed: 5
-  movementType: 0
-  creatureName: Meepis
-  body: {fileID: 0}
+  movementType: 1
+  animationStateChangers:
+  - {fileID: 1824999307505039517}
   StaminaBar: {fileID: 0}
   stamina: 100
   maxStamina: 100
   runCost: 0.5
+  recoveryRate: 5
   HungerBar: {fileID: 0}
   hunger: 100
   maxHunger: 100
@@ -115,7 +123,7 @@ MonoBehaviour:
   BathroomBar: {fileID: 0}
   bathroom: 100
   maxBathroom: 100
-  bathroomCost: 25
+  bathroomCost: 0.05
 --- !u!50 &1494589263702816981
 Rigidbody2D:
   serializedVersion: 4
@@ -142,7 +150,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!82 &4933852518654259581
 AudioSource:
   m_ObjectHideFlags: 0
@@ -274,3 +282,38 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.89, y: 0.65}
   m_Direction: 0
+--- !u!95 &6373389759754445438
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658444997582540310}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f951612743d9c0f4188d24e653a86fe6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1824999307505039517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658444997582540310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abf162058146c342ab723e5d8c0f97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  currentState: Idle

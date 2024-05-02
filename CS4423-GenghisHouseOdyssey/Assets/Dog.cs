@@ -6,19 +6,21 @@ using UnityEngine.UI;
 
 public class Dog : MonoBehaviour
 {
+    private bool isBarking = false;
+    
     [Header("Stats")]
-    [SerializeField] float speed = 0f;
     [SerializeField] float barkCost = 4f;
     [SerializeField] float poopOffsetX = -0.5f;
     [SerializeField] float poopOffsetY = -0.5f;
     [SerializeField] private GameObject body;
     [SerializeField] private GameObject dogPoopPrefab;
 
+    [Header("Player Movement")]
+    [SerializeField] float speed = 5f;
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
-
-    
-    //[SerializeField] private List<AnimationStateChanger> animationStateChangers;
+    [SerializeField] private List<AnimationStateChanger> animationStateChangers;
+    [SerializeField] private AnimationStateChanger BarkStateChanger;
 
     [Header("Health Status")]
     [SerializeField]  Image StaminaBar;
@@ -74,21 +76,22 @@ public class Dog : MonoBehaviour
         StaminaBar.fillAmount = stamina / maxStamina;
 
         //set animation
-        /*if(direction.x != 0){
+        if(direction.x != 0){
             foreach(AnimationStateChanger asc in animationStateChangers){
-                asc.ChangeAnimationState("Walk",speed);
+                asc.ChangeAnimationState("Walk");
             }
         }else{
             foreach(AnimationStateChanger asc in animationStateChangers){
                 asc.ChangeAnimationState("Idle");
             }
-        }*/
+        }
 
     }
 
     public void MoveCreatureRb(Vector3 direction)
     {
-        Vector3 currentVelocity = new Vector3(0, rb.velocity.y, 0);
+        Vector3 currentVelocity = Vector3.zero;//new Vector3(0, rb.velocity.y, 0);
+        
         rb.velocity = (currentVelocity) + (direction * speed);
         if(rb.velocity.x < 0){
             body.transform.localScale = new Vector3(-1,1,1);
@@ -105,7 +108,9 @@ public class Dog : MonoBehaviour
     }
 
     public void Bark()
-    {
+    {        
+        //List<animationStateChangers>.ChangeAnimationState("Bark");
+        
         GetComponent<AudioSource>().Play();
 
         hunger -= (hungerCost * barkCost) * Time.deltaTime;
