@@ -7,6 +7,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
 
     [SerializeField] Dog PlayerDog;
+    [SerializeField] OptionsMenu OptionMenu;
 
     void Start()
     {
@@ -48,16 +49,20 @@ public class PlayerInputHandler : MonoBehaviour
             PlayerDog.Poop();
         }
 
+        if (Input.GetKey(KeyCode.O))
+        {
+            OptionMenu.OpenOptions();
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            PlayerDog.LayDown();
+        }
+
         if (Input.GetKey(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainMenu");
         }
-
-        /*if (Input.GetKey(KeyCode.O))
-        {
-            open options menu
-        }*/
-
         PlayerDog.MoveDog(input);
     }
 }

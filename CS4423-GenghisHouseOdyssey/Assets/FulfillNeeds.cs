@@ -12,7 +12,7 @@ public class FulfillNeeds : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInside = true;
+            PlayerDog.IncreaseStamina();
         }
     }
 
@@ -20,27 +20,12 @@ public class FulfillNeeds : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInside = false;
+            PlayerDog.DecreaseStamina();
         }
     }
 
     void Update()
     {
-        if (playerInside)
-        {
-            if (gameObject.name == "FoodBowl")
-            {
-                PlayerDog.Eat();
-                Debug.Log("Eating");
-            }
-            if (gameObject.name == "DogBed")
-            {
-                PlayerDog.Rest();
-                Debug.Log("Sleeping");
-            }
-            
-            
-        }
         
     }
 }
