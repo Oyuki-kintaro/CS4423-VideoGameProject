@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using TMPro;
+using UnityEditor.Tilemaps;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -21,13 +22,14 @@ public class OptionsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetResolutionOption();
         resDropdown.value = PlayerPrefs.GetInt("ResolutionDropdown");
-        //fullscreenToggle.isOn = PlayerPrefs.GetInt("FullscreenToggle", 1) == 1;
-        //Screen.SetResolution(resolutions[resDropdown.value].width,resolutions[resDropdown.value].height,fullscreenToggle.isOn);
+        fullscreenToggle.isOn = PlayerPrefs.GetInt("FullscreenToggle", 1) == 1;
+        Screen.SetResolution(resolutions[resDropdown.value].width,resolutions[resDropdown.value].height,fullscreenToggle.isOn);
 
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
         musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-        GetResolutionOption();
+        
     }
 
     // Update is called once per frame
@@ -64,7 +66,7 @@ public class OptionsMenu : MonoBehaviour
     }
 
     public void ChooseResolution() {
-        Screen.SetResolution(resolutions[resDropdown.value].width,resolutions[resDropdown.value].height,fullscreenToggle.isOn);
+        Screen.SetResolution(resolutions[resDropdown.value].width, resolutions[resDropdown.value].height, fullscreenToggle.isOn);
         PlayerPrefs.SetInt("ResolutionDropdown", resDropdown.value);
         PlayerPrefs.SetInt("FullscreenToggle", fullscreenToggle.isOn ? 1 : 0);
         PlayerPrefs.Save();

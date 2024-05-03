@@ -18,7 +18,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         Vector3 input = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        /*if (Input.GetKey(KeyCode.UpArrow))
         {
             input.y += 1;
         }
@@ -26,7 +26,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
         {
             input.y -= 1;
-        }
+        }*/
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -38,12 +38,12 @@ public class PlayerInputHandler : MonoBehaviour
             input.x += 1;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerDog.Bark();
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             PlayerDog.Poop();
         }
@@ -52,6 +52,11 @@ public class PlayerInputHandler : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+
+        /*if (Input.GetKey(KeyCode.O))
+        {
+            open options menu
+        }*/
 
         PlayerDog.MoveDog(input);
     }

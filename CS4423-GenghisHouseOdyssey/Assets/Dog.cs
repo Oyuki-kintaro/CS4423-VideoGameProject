@@ -20,7 +20,7 @@ public class Dog : MonoBehaviour
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
     [SerializeField] private List<AnimationStateChanger> animationStateChangers;
-    [SerializeField] private AnimationStateChanger BarkStateChanger;
+
 
     [Header("Health Status")]
     [SerializeField]  Image StaminaBar;
@@ -109,17 +109,31 @@ public class Dog : MonoBehaviour
 
     public void Bark()
     {        
-        //List<animationStateChangers>.ChangeAnimationState("Bark");
-        
-        GetComponent<AudioSource>().Play();
+        animationStateChangers[0].ChangeAnimationState("Bark"); // Trigger "Bark"
 
+        GetComponent<AudioSource>().Play(); // Play the bark sound
+
+        // Decrease hunger and stamina
         hunger -= (hungerCost * barkCost) * Time.deltaTime;
-        if(hunger < 0 ) hunger = 0;
+        hunger = Mathf.Clamp(hunger, 0, maxHunger);
         HungerBar.fillAmount = hunger / maxHunger;
 
         stamina -= (runCost * barkCost) * Time.deltaTime;
-        if(stamina < 0 ) stamina = 0;
+        stamina = Mathf.Clamp(stamina, 0, maxStamina);
         StaminaBar.fillAmount = stamina / maxStamina;
+    }
+
+    private IEnumerator DelayThenChangeToIdle(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+
+        // Change to "Idle" state
+        if (animationStateChangers != null && animationStateChangers.Count > 0)
+        {
+            animationStateChangers[0].ChangeAnimationState("Idle");
+        }
+
+        isBarking = false; // Reset the state flag
     }
 
     public void Rest()
