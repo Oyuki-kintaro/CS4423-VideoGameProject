@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +6,7 @@ using UnityEngine.UI;
 public class Dog : MonoBehaviour
 {
     private bool recovery = false;
+    [SerializeField] private ScreenFader screenFader;
     
     [Header("Stats")]
     [SerializeField] float barkCost = 4f;
@@ -19,7 +19,7 @@ public class Dog : MonoBehaviour
     [SerializeField] float speed = 5f;
     public enum CreatureMovementType { tf, physics };
     [SerializeField] CreatureMovementType movementType = CreatureMovementType.tf;
-    [SerializeField] private List<AnimationStateChanger> animationStateChangers;
+    [SerializeField] private List<AnimationStateChanger> DogAnimationStateChangers;
 
 
     [Header("Health Status")]
@@ -48,6 +48,7 @@ public class Dog : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        screenFader.FadeToClear();
         // Load the player's stats from PlayerPrefs
         LoadPlayerStats();
     }
@@ -75,7 +76,7 @@ public class Dog : MonoBehaviour
         else if (stamina >= 30f && isLayingDown)
         {
             // Switch to idle animation
-            animationStateChangers[0].ChangeAnimationState("Idle");
+            DogAnimationStateChangers[0].ChangeAnimationState("Idle");
             isLayingDown = false; // Reset the flag
             recovery = false;
         }
@@ -101,15 +102,15 @@ public class Dog : MonoBehaviour
         if(direction.x != 0){
             
             if (recovery)
-                animationStateChangers[0].ChangeAnimationState("Up");
+                DogAnimationStateChangers[0].ChangeAnimationState("Up");
 
             recovery = false;
-            foreach(AnimationStateChanger asc in animationStateChangers){
+            foreach(AnimationStateChanger asc in DogAnimationStateChangers){
                 asc.ChangeAnimationState("Walk");
             }
             
         }else{
-            foreach(AnimationStateChanger asc in animationStateChangers){
+            foreach(AnimationStateChanger asc in DogAnimationStateChangers){
                 asc.ChangeAnimationState("Idle");
             }
         }
@@ -134,7 +135,7 @@ public class Dog : MonoBehaviour
 
     public void Bark()
     {        
-        animationStateChangers[0].ChangeAnimationState("Bark"); // Trigger "Bark"
+        DogAnimationStateChangers[0].ChangeAnimationState("Bark"); // Trigger "Bark"
 
         GetComponent<AudioSource>().Play(); // Play the bark sound
 
@@ -159,7 +160,7 @@ public class Dog : MonoBehaviour
     }
 
     public void LayDown(){
-        animationStateChangers[0].ChangeAnimationState("LayDown");   
+        DogAnimationStateChangers[0].ChangeAnimationState("LayDown");   
         recovery = true;     
         isLayingDown = true;
     }
@@ -185,7 +186,9 @@ public class Dog : MonoBehaviour
     {
         if (bathroom < (maxBathroom - 5))
         {
-            Vector3 spawnPosition = body.transform.localScale + new Vector3(poopOffsetX, poopOffsetY, 0f);
+            //Vector3 spawnPosition = body.transform.localScale + new Vector3(poopOffsetX, poopOffsetY, 0f);
+            Vector3 spawnPosition = body.transform.position + new Vector3(poopOffsetX, poopOffsetY, 0f);
+
             Instantiate(dogPoopPrefab, spawnPosition, Quaternion.identity);
 
             bathroom = maxBathroom;
@@ -218,5 +221,4 @@ public class Dog : MonoBehaviour
         HungerBar.fillAmount = hunger / maxHunger;
         BathroomBar.fillAmount = bathroom / maxBathroom;
     }
-
 }

@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerInputHandler : MonoBehaviour
 {
 
     [SerializeField] Dog PlayerDog;
     [SerializeField] OptionsMenu OptionMenu;
+    [SerializeField] private ScreenFader screenFader;
 
     void Start()
     {
@@ -54,14 +52,14 @@ public class PlayerInputHandler : MonoBehaviour
             OptionMenu.OpenOptions();
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             PlayerDog.LayDown();
         }
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            SceneManager.LoadScene("MainMenu");
+            screenFader.FadeToColor("MainMenu");
         }
         PlayerDog.MoveDog(input);
     }

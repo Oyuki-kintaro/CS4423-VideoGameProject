@@ -7,7 +7,11 @@ public class EnterNextScene : MonoBehaviour
 {
     
     private Scene currentScene;
-    // Start is called before the first frame update    
+    // Start is called before the first frame update   
+    [SerializeField] private List<AnimationStateChanger> DoorAnimationStateChangers; 
+    private float doorAnimationDuration = 0.5f;
+    private float playerPositionY = -4.06f;
+    [SerializeField] private ScreenFader screenFader;
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
@@ -28,23 +32,23 @@ public class EnterNextScene : MonoBehaviour
             {
                 if(currentScene.name == "BackYard")
                 {
-                    player.transform.position = new Vector3(doorX, doorY + 1.3f, 0f); // Adjust Y position as needed
+                    player.transform.position = new Vector3(doorX, playerPositionY, 0f); // Adjust Y position as needed
                 }
                 if(currentScene.name == "House")
                 {
                     if(prevScene == "BackYard")
                     {
-                        player.transform.position = new Vector3(doorX, doorY - 1.3f, 0f); // Adjust Y position as needed
+                        player.transform.position = new Vector3(doorX, playerPositionY, 0f); // Adjust Y position as needed
                     }
                     if(prevScene == "FrontYard")
                     {
-                        player.transform.position = new Vector3(doorX, doorY + 1.3f, 0f); // Adjust Y position as needed
+                        player.transform.position = new Vector3(doorX - 2.5f, playerPositionY, 0f); // Adjust Y position as needed
                     }
                     
                 }
                 if(currentScene.name == "FrontYard")
                 {
-                    player.transform.position = new Vector3(doorX, doorY - 1.3f, 0f); // Adjust Y position as needed
+                    player.transform.position = new Vector3(doorX + 2.5f, playerPositionY, 0f); // Adjust Y position as needed
                 }
             }
 
@@ -80,13 +84,13 @@ public class EnterNextScene : MonoBehaviour
             if (other.CompareTag("Player") && this.gameObject.name == "BackDoor") //&& Input.GetKey(KeyCode.Return))
             {
                 // Load the specified scene
-                SceneManager.LoadScene("BackYard");
+                StartCoroutine(OpenDoorThenChangeScene("BackYard"));
             }
 
             if (other.CompareTag("Player") && this.gameObject.name == "FrontDoor") //&& Input.GetKey(KeyCode.Return))
             {
                 // Load the specified scene
-                SceneManager.LoadScene("FrontYard");
+                StartCoroutine(OpenDoorThenChangeScene("FrontYard"));
             }
         }
 
@@ -95,7 +99,7 @@ public class EnterNextScene : MonoBehaviour
             if (other.CompareTag("Player")) //&& Input.GetKey(KeyCode.Return))
             {
                 // Load the specified scene
-                SceneManager.LoadScene("House");
+                screenFader.FadeToColor("House");
             }
         }
 
@@ -103,10 +107,27 @@ public class EnterNextScene : MonoBehaviour
         {
             if (other.CompareTag("Player")) //&& Input.GetKey(KeyCode.Return))
             {
-                // Load the specified scene
-                SceneManager.LoadScene("House");
+                // Load the specified scenev
+                screenFader.FadeToColor("House");
             }
         }
         
+    }
+
+    private IEnumerator OpenDoorThenChangeScene(string sceneName)
+    {
+        // Trigger the door animation
+        if (DoorAnimationStateChangers != null && DoorAnimationStateChangers.Count > 0)
+        {
+            foreach(AnimationStateChanger asc in DoorAnimationStateChangers){
+                asc.ChangeAnimationState("DoorMotion");
+            }
+        }
+
+        // Wait for the duration of the animation
+        yield return new WaitForSeconds(doorAnimationDuration);
+
+        // Load the next scene after the animation completes
+        screenFader.FadeToColor(sceneName);
     }
 }

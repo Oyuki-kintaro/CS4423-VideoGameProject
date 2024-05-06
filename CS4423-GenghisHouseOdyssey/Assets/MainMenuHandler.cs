@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
+    [SerializeField] private ScreenFader screenFader;
     public void Play(){
-        SceneManager.LoadScene("House");
+        screenFader.FadeToColor("House");
+        //SceneManager.LoadScene("House");
 
     }
 

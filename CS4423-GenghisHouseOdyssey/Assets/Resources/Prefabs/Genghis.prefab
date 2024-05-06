@@ -102,17 +102,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c19aaaa03ad33b4aa0ab7a0456b58a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenFader: {fileID: 0}
   barkCost: 4
-  poopOffsetX: -0.7
-  poopOffsetY: -0.25
+  poopOffsetX: -1
+  poopOffsetY: -0.7
   body: {fileID: 658444997582540310}
   dogPoopPrefab: {fileID: 4938304690104010048, guid: 03b0c020303015e4fa7df1da5656509f, type: 3}
   speed: 5
   movementType: 1
-  animationStateChangers:
+  DogAnimationStateChangers:
   - {fileID: 1824999307505039517}
   StaminaBar: {fileID: 0}
-  stamina: 100
+  stamina: 20
   maxStamina: 100
   runCost: 0.5
   recoveryRate: 5

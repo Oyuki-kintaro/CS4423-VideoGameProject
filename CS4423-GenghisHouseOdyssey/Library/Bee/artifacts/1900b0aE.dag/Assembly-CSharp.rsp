@@ -382,6 +382,7 @@
 "Assets/MainMenuHandler.cs"
 "Assets/OptionsMenu.cs"
 "Assets/PlayerInputHandler.cs"
+"Assets/ScreenFader.cs"
 "Assets/StatusBarController.cs"
 -langversion:9.0
 
