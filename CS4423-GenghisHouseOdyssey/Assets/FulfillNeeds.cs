@@ -10,7 +10,12 @@ public class FulfillNeeds : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        
+        if (gameObject.name == "FoodBowl" && other.CompareTag("Player"))
+        {
+            PlayerDog.Eat(); 
+        }
+        else if (gameObject.name == "DogBed" && other.CompareTag("Player"))
         {
             PlayerDog.IncreaseStamina();
         }
@@ -18,14 +23,13 @@ public class FulfillNeeds : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (gameObject.name == "FoodBowl" && other.CompareTag("Player"))
+        {
+            PlayerDog.StopEat(); 
+        }
+        else if (gameObject.name == "DogBed" && other.CompareTag("Player"))
         {
             PlayerDog.DecreaseStamina();
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

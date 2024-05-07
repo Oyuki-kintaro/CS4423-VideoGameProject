@@ -389,7 +389,6 @@
 "Assets/PlayerInputHandler.cs"
 "Assets/ScreenFader.cs"
 "Assets/StatusBarController.cs"
-"Assets/WindController.cs"
 -langversion:9.0
 
 /deterministic

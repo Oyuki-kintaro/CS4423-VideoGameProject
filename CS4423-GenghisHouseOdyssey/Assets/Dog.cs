@@ -42,6 +42,7 @@ public class Dog : MonoBehaviour
     Rigidbody2D rb;
     private bool isLayingDown = false; 
     private bool recovery = false;
+    private bool isEating = false;
 
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -66,6 +67,9 @@ public class Dog : MonoBehaviour
         if(bathroom < 0 ) hunger = 0;
         HungerBar.fillAmount = hunger / maxHunger;
 
+        if (isEating)
+            Eat();
+        
         if (recovery)
         {
             stamina += (recoveryRate * Time.deltaTime);
@@ -175,6 +179,7 @@ public class Dog : MonoBehaviour
 
     public void Eat()
     {
+        isEating = true;
         // fill hunger status bar
         hunger += (recoveryRate * Time.deltaTime);
         hunger = Mathf.Clamp(hunger, 0f, maxHunger);
@@ -188,6 +193,11 @@ public class Dog : MonoBehaviour
             BathroomBar.fillAmount = bathroom / maxBathroom;
         }
         
+    }
+
+    public void StopEat() 
+    {
+        isEating = false;
     }
 
     public void Poop() 
