@@ -1649,7 +1649,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 157158955
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1940232776, guid: f3b9f80cf559de44da250eba1bbb714b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5719,7 +5719,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 157158955
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1189230872, guid: f3b9f80cf559de44da250eba1bbb714b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6017,6 +6017,14 @@ PrefabInstance:
       value: Genghis
       objectReference: {fileID: 0}
     - target: {fileID: 761476574700334303, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
+      propertyPath: runCost
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 761476574700334303, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
+      propertyPath: barkCost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 761476574700334303, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
       propertyPath: HungerBar
       value: 
       objectReference: {fileID: 1109201432}
@@ -6025,6 +6033,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1502586634}
     - target: {fileID: 761476574700334303, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
+      propertyPath: hungerCost
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 761476574700334303, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
       propertyPath: BathroomBar
       value: 
       objectReference: {fileID: 310561163}
@@ -6032,6 +6044,14 @@ PrefabInstance:
       propertyPath: screenFader
       value: 
       objectReference: {fileID: 1151965663}
+    - target: {fileID: 761476574700334303, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
+      propertyPath: bathroomCost
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748128002519584788, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8748128002519584788, guid: 3e3bb4f69d2441e43b9587cc5081f3cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7

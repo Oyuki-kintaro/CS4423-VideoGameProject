@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Dog : MonoBehaviour
 {
-    private bool recovery = false;
+    
     [SerializeField] private ScreenFader screenFader;
     
     [Header("Stats")]
@@ -38,8 +38,10 @@ public class Dog : MonoBehaviour
     [SerializeField]  float bathroom = 100;
     [SerializeField]  float maxBathroom = 100;
     [SerializeField]  float bathroomCost = 0.01f;
+    
     Rigidbody2D rb;
     private bool isLayingDown = false; 
+    private bool recovery = false;
 
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -60,6 +62,10 @@ public class Dog : MonoBehaviour
         if(bathroom < 0 ) bathroom = 0;
         BathroomBar.fillAmount = bathroom / maxBathroom;
 
+        hunger -= hungerCost * Time.deltaTime;
+        if(bathroom < 0 ) hunger = 0;
+        HungerBar.fillAmount = hunger / maxHunger;
+
         if (recovery)
         {
             stamina += (recoveryRate * Time.deltaTime);
@@ -67,18 +73,22 @@ public class Dog : MonoBehaviour
             StaminaBar.fillAmount = stamina / maxStamina;
         }
 
-        if (stamina <= 10f && !isLayingDown)
+        if(isLayingDown) return;
+
+        if (stamina <= 10f && !isLayingDown) // Check if stamina is 10f or less
         {
-            // Switch to laying down animation
-            LayDown();// Set the flag to indicate the sprite is laying down
+            LayDown(); // Change to "LayDown" animation
         }
-        // Check if stamina is 20 or greater and currently laying down
-        else if (stamina >= 30f && isLayingDown)
+        else if (stamina >= 29f && isLayingDown) // Check if stamina is 30f or more
         {
-            // Switch to idle animation
-            DogAnimationStateChangers[0].ChangeAnimationState("Idle");
-            isLayingDown = false; // Reset the flag
+            DogAnimationStateChangers[0].ChangeAnimationState("Up");
+            isLayingDown = false;
             recovery = false;
+        }
+
+        if (bathroom <= 10f) 
+        {
+            Poop();
         }
     }   
 
@@ -97,19 +107,17 @@ public class Dog : MonoBehaviour
         if(stamina < 0 ) stamina = 0;
         StaminaBar.fillAmount = stamina / maxStamina;
 
-        
         //set animation
         if(direction.x != 0){
-            
-            if (recovery)
-                DogAnimationStateChangers[0].ChangeAnimationState("Up");
-
             recovery = false;
+            isLayingDown = false;
             foreach(AnimationStateChanger asc in DogAnimationStateChangers){
                 asc.ChangeAnimationState("Walk");
             }
             
-        }else{
+        }else if (!isLayingDown){
+            recovery = false;
+            isLayingDown = false;
             foreach(AnimationStateChanger asc in DogAnimationStateChangers){
                 asc.ChangeAnimationState("Idle");
             }
@@ -187,7 +195,8 @@ public class Dog : MonoBehaviour
         if (bathroom < (maxBathroom - 5))
         {
             //Vector3 spawnPosition = body.transform.localScale + new Vector3(poopOffsetX, poopOffsetY, 0f);
-            Vector3 spawnPosition = body.transform.position + new Vector3(poopOffsetX, poopOffsetY, 0f);
+            float offsetX = (body.transform.localScale.x > 0) ? poopOffsetX : -poopOffsetX;
+            Vector3 spawnPosition = body.transform.position + new Vector3(offsetX, poopOffsetY, 0f);
 
             Instantiate(dogPoopPrefab, spawnPosition, Quaternion.identity);
 
@@ -221,4 +230,5 @@ public class Dog : MonoBehaviour
         HungerBar.fillAmount = hunger / maxHunger;
         BathroomBar.fillAmount = bathroom / maxBathroom;
     }
+
 }

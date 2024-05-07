@@ -381,6 +381,7 @@
 "Assets/Dog.cs"
 "Assets/EnterNextScene.cs"
 "Assets/FulfillNeeds.cs"
+"Assets/GenerateTerrain.cs"
 "Assets/MainMenuHandler.cs"
 "Assets/ObjectPool.cs"
 "Assets/OptionsMenu.cs"
@@ -388,6 +389,7 @@
 "Assets/PlayerInputHandler.cs"
 "Assets/ScreenFader.cs"
 "Assets/StatusBarController.cs"
+"Assets/WindController.cs"
 -langversion:9.0
 
 /deterministic
