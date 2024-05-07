@@ -30,26 +30,36 @@ public class EnterNextScene : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
+                Vector3 playerPosition = player.transform.position;
+                Vector3 playerScale = player.transform.localScale;
+
                 if(currentScene.name == "BackYard")
                 {
-                    player.transform.position = new Vector3(doorX, playerPositionY, 0f); // Adjust Y position as needed
+                    playerPosition = new Vector3(doorX, playerPositionY, 0f);
+                    playerScale.x = -Mathf.Abs(playerScale.x);
                 }
                 if(currentScene.name == "House")
                 {
                     if(prevScene == "BackYard")
                     {
-                        player.transform.position = new Vector3(doorX, playerPositionY, 0f); // Adjust Y position as needed
+                        playerPosition = new Vector3(doorX, playerPositionY, 0f);
+                        playerScale.x = Mathf.Abs(playerScale.x);
                     }
                     if(prevScene == "FrontYard")
                     {
-                        player.transform.position = new Vector3(doorX - 2.5f, playerPositionY, 0f); // Adjust Y position as needed
+                        playerPosition = new Vector3(doorX - 2.5f, playerPositionY, 0f);
+                        playerScale.x = -Mathf.Abs(playerScale.x);
                     }
                     
                 }
                 if(currentScene.name == "FrontYard")
                 {
-                    player.transform.position = new Vector3(doorX + 2.5f, playerPositionY, 0f); // Adjust Y position as needed
+                    playerPosition = new Vector3(doorX + 2.5f, playerPositionY, 0f);
+                    playerScale.x = Mathf.Abs(playerScale.x);
                 }
+
+                player.transform.position = playerPosition;
+                player.transform.localScale = playerScale;
             }
 
             // Remove the stored door position from PlayerPrefs

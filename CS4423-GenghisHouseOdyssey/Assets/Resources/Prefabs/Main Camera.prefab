@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c984daec40ee544ca6522ba06841d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 2.39, z: -10}
-  smoothSpeed: 2.5
+  player: {fileID: 0}
+  smoothTime: 2
+  minBound: {x: 17.3, y: -6.7}
+  maxBound: {x: 40.25, y: 0}
 --- !u!81 &5426457411300605
 AudioListener:
   m_ObjectHideFlags: 0
