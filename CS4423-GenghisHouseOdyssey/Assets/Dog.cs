@@ -9,7 +9,7 @@ public class Dog : MonoBehaviour
     [SerializeField] private ScreenFader screenFader;
     
     [Header("Stats")]
-    [SerializeField] float barkCost = 4f;
+    [SerializeField] float barkCost = 20f;
     [SerializeField] float poopOffsetX = -0.5f;
     [SerializeField] float poopOffsetY = -0.5f;
     [SerializeField] private GameObject body;
@@ -26,18 +26,18 @@ public class Dog : MonoBehaviour
     [SerializeField]  Image StaminaBar;
     [SerializeField]  float stamina = 100;
     [SerializeField]  float maxStamina = 100;
-    [SerializeField]  float runCost = 0.1f;
+    [SerializeField]  float runCost = 0.2f;
     [SerializeField] float recoveryRate = 5f;
 
     [SerializeField]  Image HungerBar;
     [SerializeField]  float hunger = 100; 
     [SerializeField]  float maxHunger = 100;
-    [SerializeField]  float hungerCost = 1;
+    [SerializeField]  float hungerCost = 0.03f;
 
     [SerializeField]  Image BathroomBar;
     [SerializeField]  float bathroom = 100;
     [SerializeField]  float maxBathroom = 100;
-    [SerializeField]  float bathroomCost = 0.01f;
+    [SerializeField]  float bathroomCost = 0.1f;
     
     Rigidbody2D rb;
     private bool isLayingDown = false; 
@@ -227,6 +227,7 @@ public class Dog : MonoBehaviour
         PlayerPrefs.SetFloat("Stamina", stamina);
         PlayerPrefs.SetFloat("Hunger", hunger);
         PlayerPrefs.SetFloat("Bathroom", bathroom);
+        PlayerPrefs.Save();
     }
 
     void LoadPlayerStats()

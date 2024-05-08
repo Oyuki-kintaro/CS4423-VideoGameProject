@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
 using TMPro;
-using UnityEditor.Tilemaps;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -13,6 +9,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Slider masterVolumeSlider;
     [SerializeField] Slider musicVolumeSlider;
+    [SerializeField] Slider effectVolumeSlider;
 
     [Header("Resolution")]
     [SerializeField] TMP_Dropdown resDropdown;
@@ -32,11 +29,6 @@ public class OptionsMenu : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SetMasterVolume() {
        audioMixer.SetFloat("MasterVolume", ConvertToDec(masterVolumeSlider.value));
@@ -47,6 +39,12 @@ public class OptionsMenu : MonoBehaviour
     public void SetMusicVolume() {
         audioMixer.SetFloat("MusicVolume", ConvertToDec(musicVolumeSlider.value));
         PlayerPrefs.SetFloat("MusicVolume", musicVolumeSlider.value);
+        PlayerPrefs.Save();
+    }
+
+    public void SetSoundEffectVolume() {
+        audioMixer.SetFloat("EffectVolume", ConvertToDec(effectVolumeSlider.value));
+        PlayerPrefs.SetFloat("EffectVolume", effectVolumeSlider.value);
         PlayerPrefs.Save();
     }
 
@@ -78,5 +76,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void CloseOptions() {
         canvas.enabled = false;
+        Debug.Log("close options");
     }
+
 }

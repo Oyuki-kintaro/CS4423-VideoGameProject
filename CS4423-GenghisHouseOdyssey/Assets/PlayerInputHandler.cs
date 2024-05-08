@@ -17,16 +17,6 @@ public class PlayerInputHandler : MonoBehaviour
     {
         Vector3 input = Vector3.zero;
 
-        /*if (Input.GetKey(KeyCode.UpArrow))
-        {
-            input.y += 1;
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            input.y -= 1;
-        }*/
-
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             input.x += -1;
@@ -47,10 +37,10 @@ public class PlayerInputHandler : MonoBehaviour
             PlayerDog.Poop();
         }
 
-        if (Input.GetKey(KeyCode.O))
+        /*if (Input.GetKey(KeyCode.O))
         {
             OptionMenu.OpenOptions();
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {

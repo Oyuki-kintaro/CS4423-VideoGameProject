@@ -99,8 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   smoothTime: 2
-  minBound: {x: 17.3, y: -6.7}
-  maxBound: {x: 40.25, y: 0}
+  minBound: {x: -15.5, y: -6.7}
+  maxBound: {x: 19.4, y: 0}
+  offset: {x: 0, y: 2.2, z: -10}
 --- !u!81 &5426457411300605
 AudioListener:
   m_ObjectHideFlags: 0
